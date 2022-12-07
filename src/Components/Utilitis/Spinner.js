@@ -5,8 +5,8 @@ const Spinner = () => {
     const { darkMode } = useContext(DarkContext)
     return (
         <div>
-            <div class={`spinner-border ${darkMode ? 'text-light' : 'text-dark'}`} role="status">
-                <span class="visually-hidden">Loading...</span>
+            <div className={`spinner-border ${darkMode ? 'text-light' : 'text-dark'}`} role="status">
+                <span className="visually-hidden">Loading...</span>
             </div>
         </div>
     );

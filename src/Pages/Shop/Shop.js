@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import ProductCard from '../../Components/ProductCard/ProductCard';
 import Spinner from '../../Components/Utilitis/Spinner';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Shop = () => {
+    SetTitle('Shop');
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {

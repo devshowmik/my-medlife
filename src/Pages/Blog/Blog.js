@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import BlogCard from '../../Components/BlogCard/BlogCard';
 import Spinner from '../../Components/Utilitis/Spinner';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Blog = () => {
+    SetTitle('Blog Post');
     const { data: blogs = [], isLoading } = useQuery({
         queryKey: ['blogs'],
         queryFn: async () => {

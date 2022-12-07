@@ -6,8 +6,10 @@ import HeroSection from './HeroSection';
 import OrderNow from './OrderNow';
 import ProductCarousel from './ProductCarousel';
 import ReviewSection from './ReviewSection';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Home = () => {
+    SetTitle('My Medlife');
     return (
         <div>
             <HeroSection />

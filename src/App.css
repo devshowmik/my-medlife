@@ -149,3 +149,17 @@ section.review-slider .slick-slider>button {
   height: 8rem;
   object-fit: cover;
 }
+
+/* shop page */
+.shop .card {
+  transition-duration: .5s;
+}
+
+.shop .card:hover.card .card-image {
+  box-shadow: none !important;
+}
+
+.shop .card:hover {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  cursor: pointer;
+}
