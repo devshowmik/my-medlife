@@ -4,8 +4,16 @@ import ProductCard from '../../Components/ProductCard/ProductCard';
 import Spinner from '../../Components/Utilitis/Spinner';
 
 const ProductFilter = () => {
-    const [categoryName, setCategoryName] = useState('Fever');
-    const url = `https://my-medlife-server.vercel.app/product/category-name/${categoryName}`;
+    const { data: category = [] } = useQuery({
+        queryKey: ['category'],
+        queryFn: async () => {
+            const res = await fetch('https://medlife-server-devshowmik.vercel.app/product-category')
+            const data = await res.json()
+            return data
+        }
+    })
+    const [categoryName, setCategoryName] = useState('fever');
+    const url = `https://medlife-server-devshowmik.vercel.app/products/category/${categoryName}`;
     const { data: products = [], refetch, isFetching } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
@@ -20,18 +28,18 @@ const ProductFilter = () => {
 
     }
 
+
     return (
         <section className='product-category-filter py-5'>
             <div className="container">
                 <h2 className='display-5 text-center fw-bold mb-5'>Browse medicines & health products</h2>
                 <div className="d-flex justify-content-center">
                     <div className="btn-group bg-primary bg-opacity-10 p-2 gap-4 product-filter-bar w-100">
-                        <button onClick={() => filterProductByCategory('Fever')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>fever</button>
-                        <button onClick={() => filterProductByCategory('Headache')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>headache</button>
-                        <button onClick={() => filterProductByCategory('Gastric')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>gastric</button>
-                        <button onClick={() => filterProductByCategory('Vitamins')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>vitamins</button>
-                        <button onClick={() => filterProductByCategory('Pregnancy')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>pregnancy</button>
-                        <button onClick={() => filterProductByCategory('Diarrhea')} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>diarrhea</button>
+                        {
+                            category.map(cat =>
+                                <button key={cat._id} onClick={() => filterProductByCategory(`${cat.title}`)} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>{cat.title}</button>
+                            )
+                        }
                     </div>
                 </div>
                 <div className="filter-products py-5">

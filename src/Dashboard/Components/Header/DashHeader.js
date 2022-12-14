@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaBars, FaUser } from 'react-icons/fa';
+import { AuthProvider } from '../../../Context/AuthContext/AuthContext';
 
 const DashHeader = ({ toggle }) => {
+    const { handleLogOut } = useContext(AuthProvider);
     const { sideToggle, setSideToggle } = toggle;
     return (
         <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -15,7 +17,7 @@ const DashHeader = ({ toggle }) => {
                         <li><a className="dropdown-item" href="#!">Settings</a></li>
                         <li><a className="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr className="dropdown-divider" /></li>
-                        <li><a className="dropdown-item" href="#!">Logout</a></li>
+                        <li><a onClick={handleLogOut} className="dropdown-item" href="#!">Logout</a></li>
                     </ul>
                 </li>
             </ul>
