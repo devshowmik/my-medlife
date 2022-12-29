@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Spinner from '../../../../Components/Utilitis/Spinner';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 import CategoryUpdateModal from '../UpdateCategory/CategoryUpdateModal';
 import CategoryCard from './CategoryCard';
 
 const AddCategory = () => {
 
+    SetTitle('Add category');
     const { data: category = [], isLoading, refetch } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {

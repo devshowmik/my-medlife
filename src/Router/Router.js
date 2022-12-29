@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddAdmin from "../Dashboard/Components/AdminUser/AddAdmin";
 import AdminUser from "../Dashboard/Components/AdminUser/AdminUser";
+import DoctorAppointments from "../Dashboard/Components/DoctorAppointments/DoctorAppointments";
 import AddNurse from "../Dashboard/Components/Nursing/AddNurse/AddNurse";
 import AllNurse from "../Dashboard/Components/Nursing/AllNurse/AllNurse";
+import Orders from "../Dashboard/Components/Orders/Orders";
 import AddCategory from "../Dashboard/Components/Product/AddCategory/AddCategory";
 import AddProduct from "../Dashboard/Components/Product/AddProduct/AddProduct";
 import AllProduct from "../Dashboard/Components/Product/AllProduct/AllProduct";
@@ -10,13 +12,18 @@ import UpdateProduct from "../Dashboard/Components/Product/UpdateProduct/UpdateP
 import Dashboard from "../Dashboard/Dashboard";
 import DashBoardLayout from "../layouts/DashBoardLayout";
 import Main from "../layouts/Main";
+import Appointment from "../Pages/Appointment/Appointment/Appointment";
 import Blog from "../Pages/Blog/Blog";
 import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyAccount from "../Pages/MyAccount/MyAccount";
 import Nursing from "../Pages/Nursing/Nursing";
+import DoctorPayment from "../Pages/Payments/DoctorPayment";
 import Register from "../Pages/Register/Register";
+import AmbulanceServices from "../Pages/Services/AmbulanceServices/AmbulanceServices";
+import OxygenCylinderServices from "../Pages/Services/OxygenCylinderServices/OxygenCylinderServices";
 import Services from "../Pages/Services/Services";
 import Shop from "../Pages/Shop/Shop";
 import AdminRoute from "./AdminRoute/AdminRoute";
@@ -49,11 +56,32 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/nurse',
-                element: <Nursing />
+                element: <PrivateRoute><Nursing /></PrivateRoute>
+            },
+            {
+                path: '/doctor-appointment',
+                element: <PrivateRoute><Appointment /></PrivateRoute>
+            },
+            {
+                path: '/ambulance',
+                element: <AmbulanceServices />
+            },
+            {
+                path: '/oxygen',
+                element: <OxygenCylinderServices />
             },
             {
                 path: '/cart',
                 element: <PrivateRoute> <Cart /></PrivateRoute>
+            },
+            {
+                path: '/my-account',
+                element: <MyAccount />
+            },
+            {
+                path: '/doctor-payment/:id',
+                loader: ({ params }) => fetch(`https://medlife-server-devshowmik.vercel.app/bookings/${params.id}`),
+                element: <DoctorPayment />
             },
             {
                 path: '/register',
@@ -96,6 +124,10 @@ export const router = createBrowserRouter([
                 element: <AllNurse />
             },
             {
+                path: '/dashboard/doctor-appointments',
+                element: <DoctorAppointments />
+            },
+            {
                 path: '/dashboard/add-nurse',
                 element: <AddNurse />
             },
@@ -106,6 +138,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/add-admin',
                 element: <AddAdmin />
+            },
+            {
+                path: '/dashboard/orders',
+                element: <Orders />
             }
 
 

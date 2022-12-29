@@ -305,3 +305,21 @@ section.review-slider .slick-slider>button {
   border-top: 1px solid rgba(221, 221, 221, 0.15);
   padding-top: 20px;
 }
+
+/*ambulance-service page*/
+.ambulance-service .card img {
+  max-height: 15em;
+  height: 100%;
+  object-fit: cover;
+}
+
+body .product-card img {
+  width: 120px !important;
+  height: 120px !important;
+  object-fit: cover;
+  transition-duration: .5s;
+}
+
+.product-card:hover img {
+  transform: scale(1.2);
+}

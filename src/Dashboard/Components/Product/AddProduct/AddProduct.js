@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 
 const AddProduct = () => {
+    SetTitle('add product');
     const imageBbApikey = process.env.REACT_APP_IMAGEBB_API;
     const { register, handleSubmit, reset } = useForm();
     const { data: category = [] } = useQuery({

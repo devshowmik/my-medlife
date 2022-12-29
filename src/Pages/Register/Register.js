@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthProvider } from '../../Context/AuthContext/AuthContext';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Register = () => {
+    SetTitle('Register');
     const { emailRegister, updateUserInfo } = useContext(AuthProvider);
     const { register, handleSubmit, reset } = useForm();
     const handleEmailRegister = data => {

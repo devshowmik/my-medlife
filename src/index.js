@@ -20,7 +20,6 @@ root.render(
         </React.StrictMode>
       </DarkMode>
     </AuthContext>
-
   </QueryClientProvider>
 
 );

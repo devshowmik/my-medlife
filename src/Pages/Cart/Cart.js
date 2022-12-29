@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { MdDelete } from "react-icons/md";
 import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs";
 import { useQuery } from '@tanstack/react-query';
 import { AuthProvider } from '../../Context/AuthContext/AuthContext';
+import CartPaymentModal from './CartPaymentModal';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Cart = () => {
+    SetTitle('cart');
     const { user } = useContext(AuthProvider);
-    const { data: cart = [] } = useQuery({
+    const { data: cart = [], refetch } = useQuery({
         // The query will not execute until the userId exists
         enabled: !!user?.email,
         queryKey: [user, user?.email, 'cart'],
@@ -23,7 +25,7 @@ const Cart = () => {
     for (const c of cart) {
         subTotal = subTotal + parseInt(c.offerPrice ? c.offerPrice : c.price);
     }
-    const shipping = 40;
+    const shipping = subTotal && 40;
     const total = subTotal + shipping;
     const handleDeleteCart = id => {
         console.log(id)
@@ -115,11 +117,16 @@ const Cart = () => {
                                     <span><b>{total} ৳</b></span>
                                 </div>
                             </div>
-                            <Link to="/checkout" className="btn btn-danger rounded-0 py-3 d-block w-100">PROCEED TO CHECKOUT</Link>
+                            <span
+                                disabled={subTotal}
+                                className={`btn btn-danger rounded-0 py-3 d-block w-100 ${!subTotal && 'disabled'}`}
+                                data-bs-toggle="modal"
+                                data-bs-target="#cartpayment">PROCEED TO CHECKOUT</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <CartPaymentModal paymentInformation={cart} total={total} refetch={refetch} />
         </div>
     );
 };

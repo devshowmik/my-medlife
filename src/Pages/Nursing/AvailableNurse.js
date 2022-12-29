@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const AvailableNurse = ({ formatedDate, setSelectedNurseModal }) => {
+
+    SetTitle('Available Nurse');
     const { data: nurses = [] } = useQuery({
         queryKey: ['nurses', formatedDate],
         queryFn: async () => {

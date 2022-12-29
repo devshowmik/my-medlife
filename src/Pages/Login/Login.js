@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../Context/AuthContext/AuthContext';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Login = () => {
+
+    SetTitle('Login');
     const { emailLogin } = useContext(AuthProvider);
     const redirect = useNavigate();
     const { register, handleSubmit } = useForm();

@@ -3,8 +3,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 
 const UpdateProduct = () => {
+    SetTitle('update product');
     const { _id, productImage, title, description, offerPrice, price, category: oldCategory } = useLoaderData()
     const { register, handleSubmit, reset } = useForm();
     const { data: category = [] } = useQuery({

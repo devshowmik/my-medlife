@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
             })
     }
     return (
-        <div className="card border-0 text-center align-items-center bg-transparent h-100">
+        <div className="card product-card border-0 text-center align-items-center bg-transparent h-100">
             <div className="card-image bg-white p-3 rounded shadow shadow-sm">
                 <img src={productImage} className="card-img-top w-100" alt={title} style={{ maxWidth: '150px' }} />
             </div>
@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
                     {
                         offerPrice
                             ?
-                            <p>${offerPrice} <small className='text-muted'><del>${price}</del></small></p>
+                            <p>{offerPrice}<b className='fs-6'>৳</b><small className='text-muted fs-6'><del>{price}<b className='fs-6'>৳</b></del></small></p>
                             :
                             price
                     }

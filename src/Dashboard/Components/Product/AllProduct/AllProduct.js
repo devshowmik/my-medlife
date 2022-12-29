@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import Spinner from '../../../../Components/Utilitis/Spinner';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 import ProductQuickView from '../ProductQuickView/ProductQuickView';
 import ProductTableData from './ProductTableData';
 
 const AllProduct = () => {
+    SetTitle('all product');
     const [quickView, setQuickView] = useState([]);
     const { data: products = [], isLoading, refetch } = useQuery({
         queryKey: ['products'],

@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 
 const AddNurse = () => {
+    SetTitle('Add Nurse');
     const { register, handleSubmit, reset } = useForm();
     const imageBbApikey = process.env.REACT_APP_IMAGEBB_API;
     const handleAddNurse = data => {

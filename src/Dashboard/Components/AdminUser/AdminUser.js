@@ -3,8 +3,10 @@ import React from 'react';
 import { FaPen, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { SetTitle } from '../../../Utilities/SetTitle';
 
 const AdminUser = () => {
+    SetTitle('all user');
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {

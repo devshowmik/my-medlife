@@ -12,7 +12,7 @@ const SideNav = () => {
             <div className="sb-sidenav-menu">
                 <div className="nav text-capitalize">
                     <div className="sb-sidenav-menu-heading">Core</div>
-                    <Link className="nav-link" to="/">
+                    <Link className="nav-link" to="/dashboard">
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </Link>
@@ -53,13 +53,11 @@ const SideNav = () => {
                     </div>
 
                     <div className="sb-sidenav-menu-heading">Addons</div>
-                    <Link className="nav-link" to="charts.html">
-                        <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
-                        Charts
+                    <Link className="nav-link" to="/dashboard/doctor-appointments">
+                        Doctor Appointments
                     </Link>
-                    <Link className="nav-link" to="tables.html">
-                        <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
-                        Tables
+                    <Link className="nav-link" to="/dashboard/orders">
+                        orders
                     </Link>
                 </div>
             </div>

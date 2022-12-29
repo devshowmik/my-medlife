@@ -3,8 +3,10 @@ import photo3 from '../../images/Photo_3.png';
 import { TbAmbulance, TbHeartbeat, TbNurse } from "react-icons/tb";
 import { BiSprayCan } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import { SetTitle } from '../../Utilities/SetTitle';
 
 const Services = () => {
+    SetTitle('Services');
     return (
         <div className='services'>
             <div className="container">
@@ -47,7 +49,7 @@ const Services = () => {
                                 <div className="card-body text-dark">
                                     <h3 className="card-title">Doctor</h3>
                                     <p className="card-text"><small>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small></p>
-                                    <Link to='/nurse' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Book Appointment</Link>
+                                    <Link to='/doctor-appointment' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Book Appointment</Link>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +62,7 @@ const Services = () => {
                                 <div className="card-body text-dark">
                                     <h3 className="card-title">Ambulance</h3>
                                     <p className="card-text"><small>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small></p>
-                                    <Link to='/nurse' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Rent Ambulance</Link>
+                                    <Link to='/ambulance' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Rent Ambulance</Link>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +75,7 @@ const Services = () => {
                                 <div className="card-body text-dark">
                                     <h3 className="card-title">Oxygen</h3>
                                     <p className="card-text"><small>This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small></p>
-                                    <Link to='/nurse' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Rent Oxygen Cylinder</Link>
+                                    <Link to='/oxygen' className='btn btn-outline-dark btn-sm border-0 text-decoration-underline'>Rent Oxygen Cylinder</Link>
                                 </div>
                             </div>
                         </div>

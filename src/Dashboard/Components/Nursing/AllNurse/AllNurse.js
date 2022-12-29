@@ -2,8 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { FaPen, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { SetTitle } from '../../../../Utilities/SetTitle';
 
 const AllNurse = () => {
+    SetTitle('all nurse');
     const { data: nurses = [] } = useQuery({
         queryKey: ['nurses'],
         queryFn: async () => {
