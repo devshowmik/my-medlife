@@ -12,18 +12,18 @@ const Nursing = () => {
     const formatedDate = format(selectedDate, 'PP');
     return (
         <div className='nursing container'>
-            <NursingHeader
+            {/* <NursingHeader
                 selectedDate={selectedDate}
-                setSelectedDate={setSelectedDate} />
+                setSelectedDate={setSelectedDate} /> */}
             <AvailableNurse
                 formatedDate={formatedDate}
                 setSelectedNurseModal={setSelectedNurseModal}
             />
             {/* booking modal for nursing */}
-            <NursingbookingModal
+            {/* <NursingbookingModal
                 selectedNurseModal={selectedNurseModal}
                 formatedDate={formatedDate}
-            />
+            /> */}
         </div>
     );
 };

@@ -53,7 +53,6 @@ const AddNurse = () => {
                 <div className="mb-3">
                     <label htmlFor="nurse-education" className="form-label fw-semibold text-muted">nurse education</label>
                     <input {...register('nurseEducation')} required type="text" className="form-control rounded-0" name='nurseEducation' id="nurse-education" placeholder="Bsc nursing at college" />
-
                 </div>
 
                 <div className="mb-3">

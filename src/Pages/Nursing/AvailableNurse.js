@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { SetTitle } from '../../Utilities/SetTitle';
 
-const AvailableNurse = ({ formatedDate, setSelectedNurseModal }) => {
+const AvailableNurse = () => {
 
     SetTitle('Available Nurse');
     const { data: nurses = [] } = useQuery({
-        queryKey: ['nurses', formatedDate],
+        queryKey: ['nurses'],
         queryFn: async () => {
-            const res = await fetch(`https://medlife-server-devshowmik.vercel.app/nurse?date=${formatedDate}`)
+            const res = await fetch(`https://medlife-server-devshowmik.vercel.app/nurse`)
             const data = await res.json()
             return data
         }
@@ -16,7 +16,6 @@ const AvailableNurse = ({ formatedDate, setSelectedNurseModal }) => {
     return (
         <div className='available-nurse py-5'>
             <h2 className='text-dark mt-5 text-center text-capitalize'>available nurse</h2>
-            <p className=' text-center text-capitalize'>on {formatedDate}</p>
             <div className="row row-cols-1 row-cols-md-4 g-4">
                 {
                     nurses.map(nurse =>
@@ -26,12 +25,10 @@ const AvailableNurse = ({ formatedDate, setSelectedNurseModal }) => {
                                 <div className="card-body p-0 pt-2 text-dark">
                                     <h5 className="card-title">{nurse.name}</h5>
                                     <p className="card-text">{nurse.education}</p>
-                                    <button
-                                        onClick={() => setSelectedNurseModal(nurse)}
+                                    <a
                                         className='btn btn-primary rounded-0 fw-semibold text-capitalize'
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#booknurse"
-                                    >book now</button>
+                                        href='tel:012345678902'
+                                    >Call now</a>
                                 </div>
                             </div>
                         </div>)

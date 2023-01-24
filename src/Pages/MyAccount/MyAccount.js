@@ -1,16 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../Context/AuthContext/AuthContext';
 import { SetTitle } from '../../Utilities/SetTitle';
 
 const MyAccount = () => {
+    const redirect = useNavigate();
     SetTitle('My account');
     const { user, handleLogOut } = useContext(AuthProvider);
     const { data: appointments = [] } = useQuery({
         queryKey: ['appointment'],
         queryFn: async () => {
-            const res = await fetch('https://medlife-server-devshowmik.vercel.app/bookings')
+            const res = await fetch(`https://medlife-server-devshowmik.vercel.app/bookings?email=${user?.email}`)
             const data = await res.json()
             return data
         }
@@ -23,8 +24,11 @@ const MyAccount = () => {
             return data
         }
     })
+    if (!user) {
+        redirect('/login')
+    }
     return (
-        <div className='my-account text-capitalize'>
+        <div className='my-account text-capitalize pb-3'>
             <div className="container">
                 <div className="user-information">
                     <img src={user?.photoURL} alt={user?.displayName} className=' rounded-circle img-fluid img-thumbnail' style={{ maxWidth: '100px' }} />

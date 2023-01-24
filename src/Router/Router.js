@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import AddAdmin from "../Dashboard/Components/AdminUser/AddAdmin";
 import AdminUser from "../Dashboard/Components/AdminUser/AdminUser";
+import AllAdmin from "../Dashboard/Components/AdminUser/AllAdmin";
 import DoctorAppointments from "../Dashboard/Components/DoctorAppointments/DoctorAppointments";
 import AddNurse from "../Dashboard/Components/Nursing/AddNurse/AddNurse";
 import AllNurse from "../Dashboard/Components/Nursing/AllNurse/AllNurse";
@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <PrivateRoute> <Cart /></PrivateRoute>
+                element: <PrivateRoute> <Cart /> </PrivateRoute>
             },
             {
                 path: '/my-account',
@@ -136,8 +136,8 @@ export const router = createBrowserRouter([
                 element: <AdminUser />
             },
             {
-                path: '/dashboard/add-admin',
-                element: <AddAdmin />
+                path: '/dashboard/all-admin',
+                element: <AllAdmin />
             },
             {
                 path: '/dashboard/orders',

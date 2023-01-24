@@ -359,3 +359,11 @@ a {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
+
+.users img {
+  max-width: 150px !important;
+  width: 100%;
+  max-height: 150px !important;
+  height: 100%;
+  object-fit: cover;
+}

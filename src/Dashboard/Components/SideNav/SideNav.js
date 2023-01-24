@@ -47,8 +47,8 @@ const SideNav = () => {
                     </Link>
                     <div className="collapse" id="admin" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav className="sb-sidenav-menu-nested nav">
-                            <Link className="nav-link" to="/dashboard/admin">All admin </Link>
-                            <Link className="nav-link" to="/dashboard/add-admin">Add admin </Link>
+                            <Link className="nav-link" to="/dashboard/admin">All Users </Link>
+                            <Link className="nav-link" to="/dashboard/all-admin">All admin </Link>
                         </nav>
                     </div>
 

@@ -7,11 +7,14 @@ import useUserRole from '../../Hooks/useAdmin';
 
 const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthProvider);
-    const [adminUser, loadingRole] = useUserRole(user?.email);
+
+
+    const [adminUser, loadingRole] = useUserRole(user?.email && user?.email);
     const location = useLocation();
     if (loading || loadingRole) {
         return <Spinner />
     };
+
     if (user && adminUser === 'admin') {
         return children;
     };

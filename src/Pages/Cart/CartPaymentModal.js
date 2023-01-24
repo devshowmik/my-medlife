@@ -18,7 +18,7 @@ const CartPaymentModal = ({ paymentInformation, total, refetch }) => {
                         <h5 className='text-dark'>Total Payment Amount is {total}</h5>
                         <p className='fw-bold text-dark'>Items</p>
                         <ul className='text-dark d-flex flex-wrap gap-4'>
-                            {paymentInformation.map(item => <li key={item._id}>{item.title}</li>)}
+                            {paymentInformation.map(item => <li key={item._id}>{item.title}(X {item.quantity})</li>)}
                         </ul>
                         <Elements stripe={stripePromise}>
                             <CartPaymentFrom

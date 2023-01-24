@@ -76,7 +76,7 @@ const UpdateProduct = () => {
                                 name="productOfferPrice"
                                 id="offer-price"
                                 placeholder='Offer Price'
-                                defaultValue={offerPrice} />
+                                defaultValue={offerPrice && offerPrice} />
                         </div>
                         <div className="col-md-4">
                             <label htmlFor="product-category" className="form-label fw-semibold text-muted">Product category</label>

@@ -37,7 +37,7 @@ const ProductFilter = () => {
                     <div className="btn-group bg-primary bg-opacity-10 p-2 gap-4 product-filter-bar w-100">
                         {
                             category.map(cat =>
-                                <button key={cat._id} onClick={() => filterProductByCategory(`${cat.title}`)} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>{cat.title}</button>
+                                <button key={cat._id} onClick={() => filterProductByCategory(cat.title)} className={`btn btn-light text-capitalize shadow-sm fw-semibold text-secondary rounded`}>{cat.title}</button>
                             )
                         }
                     </div>

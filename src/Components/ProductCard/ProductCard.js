@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthProvider } from '../../Context/AuthContext/AuthContext';
 
@@ -11,7 +12,8 @@ const ProductCard = ({ product }) => {
         price,
         productImage,
         offerPrice,
-        email: user?.email
+        email: user?.email,
+        quantity: 1
     }
     const handleAddCart = data => {
         fetch('https://medlife-server-devshowmik.vercel.app/cart', {
@@ -41,12 +43,18 @@ const ProductCard = ({ product }) => {
                             ?
                             <p>{offerPrice}<b className='fs-6'>৳</b><small className='text-muted fs-6'><del>{price}<b className='fs-6'>৳</b></del></small></p>
                             :
-                            price
+                            <>{price}৳</>
                     }
 
                 </h4>
+                {
+                    user
+                        ?
+                        <button className='btn btn-primary' onClick={() => handleAddCart(productCardData)}>Add to Cart</button>
+                        :
+                        <Link className='btn btn-secondary btn-sm disabled' to='/login'>Login to Buy</Link>
 
-                <button className='btn btn-primary' onClick={() => handleAddCart(productCardData)}>Add to Cart</button>
+                }
             </div>
         </div>
     );
